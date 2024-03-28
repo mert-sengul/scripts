@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import subprocess
 import sys
@@ -109,8 +111,9 @@ def process_and_print_batch(batch):
 
 
 def parse_command():
+    # TODO: detect if the user is running a python script and warn about unbuffered output
     SEPERATOR = " -- "
-    s_input = " ".join(sys.argv[1])
+    s_input = " ".join(sys.argv[1:])
     commands_list = (s_input).split(SEPERATOR)
     return " && ".join(commands_list)
 
